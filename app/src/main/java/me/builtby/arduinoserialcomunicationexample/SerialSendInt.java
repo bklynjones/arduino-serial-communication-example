@@ -32,8 +32,7 @@ public class SerialSendInt implements Runnable{
         // Open a connection to the first available driver.
         this.mDriver = drivers.get(0);
         this.mManager = manager;
-        this.mByte = ByteBuffer.allocate(8).putInt(count).array();
-
+        this.mByte = ByteBuffer.allocate(1).putInt(count).array();
     }
 
     @Override
@@ -43,7 +42,8 @@ public class SerialSendInt implements Runnable{
         try{
             port.open(connection);
             port.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
-            port.write(mByte,1000);
+            //port.write(mByte,1000);
+            port.write(mByte, 1000);
             Log.d(TAG, "mByte: " + ByteBuffer.wrap(mByte).getInt());
 //            port.read(mByte,1000);
 //            int responseVal  = ByteBuffer.wrap(mByte).getInt();

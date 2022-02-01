@@ -36,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void TransmitText(int msg){
 
-        SerialSendInt serialSendInt = new SerialSendInt(manager,msg);
+        int toSend = Integer.parseInt("1");
+
+
+        SerialSendInt serialSendInt = new SerialSendInt(manager,toSend);
         new Thread(serialSendInt).start();
 
 
