@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -34,11 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void TransmitText(int msg){
+    public void transmitText(View view){
 
-        int toSend = Integer.parseInt("1");
+        // Get the value from the UI
+       CharSequence txFieldValue = TxText.getText();
+       //Cast the Char sequence to a String which then is cast to an int.
+       int toSend = Integer.parseInt(txFieldValue.toString());
 
-
+       // Send the value over serial (occurs on a seperate thread
         SerialSendInt serialSendInt = new SerialSendInt(manager,toSend);
         new Thread(serialSendInt).start();
 

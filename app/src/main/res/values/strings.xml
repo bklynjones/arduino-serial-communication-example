@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ArduinoSerialComunicationExample</string>
+    <string name="recieved_from_arduino"><![CDATA[Recieved <- From Arduino]]></string>
+    <string name="send_to_arduino"><![CDATA[Send -> to Arduino]]></string>
+    <string name="send_recieve_btn">Send / Recieve</string>
+    <string name="value_to_send">Value to Send</string>
+    <string name="text_from_arduino">Echoed Value</string>
 </resources>
